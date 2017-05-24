@@ -1,0 +1,92 @@
+# $Id: RDBC.spec.in,v 1.1.1.1 2004/02/18 20:58:02 dave Exp $
+#
+# RPM Spec file for RDBC library
+# 
+
+%define rootsys @ROOTSYS@
+%define root_version @ROOT_VER@
+%define gcc_version @GCC_VER@
+
+%define name @PACKAGE@
+%define version @VERSION@
+
+%define full_version %{version}_root%{root_version}_gcc%{gcc_version}
+%define full_name %{name}-%{full_version}
+
+Name:          %{name}
+Summary:       ROOT class library that emulates JDBC API 
+Version:       %{version}
+Release:       1
+Source:        http:/www.phenix.bnl.gov/WWW/publish/onuchin/RDBC/download/%{name}-%{version}.tar.gz
+Group:         Development/Libraries
+Copyright:     GPL
+#Requires:     root >= 3.00 
+Distribution:  RDBC
+Vendor:        Valeriy Onuchin <onuchin@sirius.ihep.su>
+Packager:      Valeriy Onuchin <onuchin@sirius.ihep.su>
+
+requires:      unixODBC
+requires:      root >= 3.0
+#BuildPreReq:   unixODBC-devel
+#BuildPreReq:   root >= 3.0
+
+Url:           myhost
+BuildRoot: /var/tmp/%{name}-root
+Prefix: %{rootsys}
+
+
+%description
+The library provides an interface between ROOT <root.cern.ch> 
+and Relational Databases based on the JDBC API.
+
+To install %{name} use: rpm -i --prefix=$ROOTSYS %{full_name}.i386.rpm
+
+
+%prep
+rm -rf $RPM_BUILD_ROOT
+
+%setup -n %{name}-%{version}
+
+%build
+./configure \
+	--prefix=${RPM_BUILD_ROOT}/%{rootsys} \
+	--with-odbc --enable-threads \
+	--with-gnu-ld --without-tests
+gmake clean
+gmake all
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+rm -rf /usr/src/redhat/BUILD/%{name}-%{version}
+
+%install
+gmake install
+
+%post
+ldconfig -n %{rootsys}/lib
+ldconfig -n /usr/lib
+
+%postun
+ldconfig -n %{rootsys}/lib
+ldconfig -n /usr/lib
+
+%files
+%doc AUTHORS
+%doc COPYING
+%doc ChangeLog
+%doc INSTALL
+%doc INSTALL.local
+%doc NEWS
+%doc TODO
+%doc BUGS
+%doc README
+
+%defattr(-,root,root)
+%attr(0755,root,root) %{rootsys}/lib/libRDBC*.so.*
+%attr(0644,root,root) %{rootsys}/include/RDBC/*.h  
+
+%attr(0755,root,root) %{rootsys}/macros/RDBC/README.RDBC
+%attr(0755,root,root) %{rootsys}/macros/RDBC/*sql
+%attr(0755,root,root) %{rootsys}/macros/RDBC/*.C
+
+

@@ -1,0 +1,7 @@
+# this file is test input for connecting to a mysql database
+# the uncommented line below gets executed, if the env variables
+# are correct (i.e. if mysql -h $MYSQL_HOST -u $MYSQL_USER and password
+# $MYSQL_PSWD get you connected) then 'gmake test' should report PASSED
+# 
+#
+mysql:odbc://$MYSQL_HOST/test $MYSQL_USER $MYSQL_PSWD

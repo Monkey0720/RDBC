@@ -1,0 +1,176 @@
+2001-04-06 17:43  onuchin
+
+	* odbc/Makefile.SRT:
+	PACKAGE = RDBCodbc added. Another weird fixing(??)
+	
+2001-04-06 15:51  onuchin
+
+	* odbc/Makefile.SRT:
+	override LIBLIBS = -L$(ODBCPP_DIR) -lodbc++ -L$(UNIXODBC_LIB) -lodbc -lodbcinst
+	Temporary solution for dynamic loading of unixODBC,libodbc++ libs
+	(should be fixed by modification of correspondent arch_specs files)
+	
+2001-04-06 11:17  onuchin
+
+	* include/RDBC/config.h:
+	clearing mess appeared after upgrating from 1.0.2 -> 1.0.3
+	
+2001-04-06 10:31  onuchin
+
+	* macros/Makefile.SRT:
+	demobld.mysql README.RDBC added
+	
+2001-04-06 09:59  onuchin
+
+	* GNUmakefile:
+	PACKAGE_INCLUDE=include/RDBC added to point to include dir
+	
+2001-04-05 20:58  onuchin
+
+	* Makefile.SRT, odbc/Makefile.SRT:
+	Fix of rootcint dictionary generation
+	
+2001-04-05 12:26  onuchin
+
+	* rdbc/Makefile.SRT:
+	Error generating CintDictionary is fixed
+	
+2001-04-04 20:08  onuchin
+
+	* GNUmakefile, Makefile, Makefile.SRT, Makefile.am, Makefile.in,
+	RDBC.spec, config.h, config.log, config.status, include/Makefile,
+	include/Makefile.in, include/RDBC/Makefile,
+	include/RDBC/Makefile.in, include/RDBC/config.h,
+	macros/GNUmakefile, macros/Makefile, macros/Makefile.SRT,
+	macros/Makefile.am, macros/Makefile.in, odbc/GNUmakefile,
+	odbc/Makefile.SRT, odbc/Makefile.am, odbc/Makefile.in,
+	rdbc/GNUmakefile, rdbc/Makefile.SRT, rdbc/Makefile.am,
+	rdbc/Makefile.in:
+	SRT makefiles added
+	
+2001-03-27 18:23  onuchin
+
+	* GNUmakefile:
+	Fix in "make clean". Now it works like in SRT
+	
+2001-03-27 16:15  onuchin
+
+	* rdbc/: LinkDef.h, Makefile.am, Makefile.in:
+	LinkDef.h moved from include/RDBC dir
+	
+2001-03-27 16:14  onuchin
+
+	* include/RDBC/: LinkDef.h, Makefile, Makefile.am, Makefile.in,
+	config.h:
+	include/RDBC/LinkDef.h moved to rdbc subdir
+	
+2001-03-27 16:11  onuchin
+
+	* GNUmakefile, configure:
+	version updated to 1.0.3
+	
+2001-03-27 09:33  onuchin
+
+	* AUTHORS, BUGS, COPYING, ChangeLog, GNUmakefile, INSTALL,
+	INSTALL.local, Makefile, Makefile.am, Makefile.in, NEWS, RDBC.spec,
+	RDBC.spec.in, README, TODO, acconfig.h, acinclude.m4, aclocal.m4,
+	config.h, config.h.in, config.log, config.status, configure,
+	configure.in, libtool, missing, mkinstalldirs, stamp-h, stamp-h.in,
+	admin/config.guess, admin/config.sub, admin/cvs2cl.pl,
+	admin/install-sh, admin/ltconfig, admin/ltmain.sh,
+	admin/makechangelog.sh, admin/makehtml.C, admin/makeloghtml.C,
+	admin/missing, admin/mkinstalldirs, macros/Makefile,
+	macros/Makefile.am, macros/Makefile.in, macros/RDBCbench.C,
+	macros/RDBCconsumer.C, macros/RDBCemp.C, macros/RDBCfirst.C,
+	macros/RDBCform.C, macros/RDBCmysql.C, macros/RDBCproducer.C,
+	macros/RDBCscroll.C, macros/README.RDBC, macros/access_log.mysql,
+	macros/demobld.mysql, odbc/LinkDef.h, odbc/Makefile.am,
+	odbc/Makefile.in, odbc/ODBCCallableStatement.cxx,
+	odbc/ODBCCallableStatement.h, odbc/ODBCConnection.cxx,
+	odbc/ODBCConnection.h, odbc/ODBCDatabaseMetaData.cxx,
+	odbc/ODBCDatabaseMetaData.h, odbc/ODBCPreparedStatement.cxx,
+	odbc/ODBCPreparedStatement.h, odbc/ODBCResultSet.cxx,
+	odbc/ODBCResultSet.h, odbc/ODBCResultSetMetaData.cxx,
+	odbc/ODBCResultSetMetaData.h, odbc/ODBCStatement.cxx,
+	odbc/ODBCStatement.h, odbc/README, rdbc/Makefile.am,
+	rdbc/Makefile.in, rdbc/README, rdbc/TRDBCServer.cxx, rdbc/TSQL.cxx,
+	rdbc/TSQLCallableStatement.cxx, rdbc/TSQLConnection.cxx,
+	rdbc/TSQLDatabaseMetaData.cxx, rdbc/TSQLDriverInfo.cxx,
+	rdbc/TSQLDriverManager.cxx, rdbc/TSQLImportClient.cxx,
+	rdbc/TSQLImportClient.h, rdbc/TSQLImporter.cxx,
+	rdbc/TSQLPreparedStatement.cxx, rdbc/TSQLResultSet.cxx,
+	rdbc/TSQLResultSetMetaData.cxx, rdbc/TSQLStatement.cxx,
+	rdbc/TSQLTypes.cxx, rdbc/TSQLUrl.cxx, include/Makefile,
+	include/Makefile.am, include/Makefile.in, include/RDBC/LinkDef.h,
+	include/RDBC/Makefile, include/RDBC/Makefile.am,
+	include/RDBC/Makefile.in, include/RDBC/TRDBCServer.h,
+	include/RDBC/TSQL.h, include/RDBC/TSQLCallableStatement.h,
+	include/RDBC/TSQLConnection.h, include/RDBC/TSQLDatabaseMetaData.h,
+	include/RDBC/TSQLDriverInfo.h, include/RDBC/TSQLDriverManager.h,
+	include/RDBC/TSQLImporter.h, include/RDBC/TSQLPreparedStatement.h,
+	include/RDBC/TSQLResultSet.h, include/RDBC/TSQLResultSetMetaData.h,
+	include/RDBC/TSQLStatement.h, include/RDBC/TSQLTypes.h,
+	include/RDBC/TSQLUrl.h, include/RDBC/config.h,
+	mysql/MySQLCallableStatement.cxx, mysql/MySQLConnection.cxx,
+	mysql/MySQLConnectionPrivate.h, mysql/MySQLDatabaseMetaData.cxx,
+	mysql/MySQLPreparedStatement.cxx, mysql/MySQLResultSet.cxx,
+	mysql/MySQLResultSetMetaData.cxx, mysql/MySQLResultSetPrivate.h,
+	mysql/MySQLStatement.cxx, mysql/MySQLStatementPrivate.h,
+	mysql/README, mysql/config.m4:
+	RDBC-1.0.3 ( for SRT and GNU autotools )
+	
+2001-03-27 09:33  onuchin
+
+	* AUTHORS, BUGS, COPYING, ChangeLog, GNUmakefile, INSTALL,
+	INSTALL.local, Makefile, Makefile.am, Makefile.in, NEWS, RDBC.spec,
+	RDBC.spec.in, README, TODO, acconfig.h, acinclude.m4, aclocal.m4,
+	config.h, config.h.in, config.log, config.status, configure,
+	configure.in, libtool, missing, mkinstalldirs, stamp-h, stamp-h.in,
+	admin/config.guess, admin/config.sub, admin/cvs2cl.pl,
+	admin/install-sh, admin/ltconfig, admin/ltmain.sh,
+	admin/makechangelog.sh, admin/makehtml.C, admin/makeloghtml.C,
+	admin/missing, admin/mkinstalldirs, macros/Makefile,
+	macros/Makefile.am, macros/Makefile.in, macros/RDBCbench.C,
+	macros/RDBCconsumer.C, macros/RDBCemp.C, macros/RDBCfirst.C,
+	macros/RDBCform.C, macros/RDBCmysql.C, macros/RDBCproducer.C,
+	macros/RDBCscroll.C, macros/README.RDBC, macros/access_log.mysql,
+	macros/demobld.mysql, odbc/LinkDef.h, odbc/Makefile.am,
+	odbc/Makefile.in, odbc/ODBCCallableStatement.cxx,
+	odbc/ODBCCallableStatement.h, odbc/ODBCConnection.cxx,
+	odbc/ODBCConnection.h, odbc/ODBCDatabaseMetaData.cxx,
+	odbc/ODBCDatabaseMetaData.h, odbc/ODBCPreparedStatement.cxx,
+	odbc/ODBCPreparedStatement.h, odbc/ODBCResultSet.cxx,
+	odbc/ODBCResultSet.h, odbc/ODBCResultSetMetaData.cxx,
+	odbc/ODBCResultSetMetaData.h, odbc/ODBCStatement.cxx,
+	odbc/ODBCStatement.h, odbc/README, rdbc/Makefile.am,
+	rdbc/Makefile.in, rdbc/README, rdbc/TRDBCServer.cxx, rdbc/TSQL.cxx,
+	rdbc/TSQLCallableStatement.cxx, rdbc/TSQLConnection.cxx,
+	rdbc/TSQLDatabaseMetaData.cxx, rdbc/TSQLDriverInfo.cxx,
+	rdbc/TSQLDriverManager.cxx, rdbc/TSQLImportClient.cxx,
+	rdbc/TSQLImportClient.h, rdbc/TSQLImporter.cxx,
+	rdbc/TSQLPreparedStatement.cxx, rdbc/TSQLResultSet.cxx,
+	rdbc/TSQLResultSetMetaData.cxx, rdbc/TSQLStatement.cxx,
+	rdbc/TSQLTypes.cxx, rdbc/TSQLUrl.cxx, include/Makefile,
+	include/Makefile.am, include/Makefile.in, include/RDBC/LinkDef.h,
+	include/RDBC/Makefile, include/RDBC/Makefile.am,
+	include/RDBC/Makefile.in, include/RDBC/TRDBCServer.h,
+	include/RDBC/TSQL.h, include/RDBC/TSQLCallableStatement.h,
+	include/RDBC/TSQLConnection.h, include/RDBC/TSQLDatabaseMetaData.h,
+	include/RDBC/TSQLDriverInfo.h, include/RDBC/TSQLDriverManager.h,
+	include/RDBC/TSQLImporter.h, include/RDBC/TSQLPreparedStatement.h,
+	include/RDBC/TSQLResultSet.h, include/RDBC/TSQLResultSetMetaData.h,
+	include/RDBC/TSQLStatement.h, include/RDBC/TSQLTypes.h,
+	include/RDBC/TSQLUrl.h, include/RDBC/config.h,
+	mysql/MySQLCallableStatement.cxx, mysql/MySQLConnection.cxx,
+	mysql/MySQLConnectionPrivate.h, mysql/MySQLDatabaseMetaData.cxx,
+	mysql/MySQLPreparedStatement.cxx, mysql/MySQLResultSet.cxx,
+	mysql/MySQLResultSetMetaData.cxx, mysql/MySQLResultSetPrivate.h,
+	mysql/MySQLStatement.cxx, mysql/MySQLStatementPrivate.h,
+	mysql/README, mysql/config.m4:
+	Initial revision
+	
+2001-02-20 17:22  messier
+
+	* .cvsignore:
+	Added package RDBC
+	

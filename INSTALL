@@ -1,0 +1,270 @@
+
+
+            Build and installation steps for RDBC.
+
+  ====================================================================== 
+ 
+
+  ______________________________________________________________________
+
+
+  Table of Contents
+
+
+  1. Software requirements
+
+     1.1 ROOT 
+     1.2 ODBC Driver Manager
+     1.3 Drivers
+
+  2. Installation
+
+     2.1 UNIX
+        2.1.1 Configuration
+        2.1.2 Compilation
+        2.1.3 Installing
+     
+     2.2 RedHat Linux (creating RPMs)
+ 
+  3. Testing
+
+  4. Documentation 
+
+  ______________________________________________________________________
+
+
+  1.  Software requirements
+
+
+  1.1. ROOT 
+
+  To compile RDBC, you need to have installed ROOT <http://root.cern.ch>  
+  version 3.00 or better.
+
+  
+   o  Define the variable ROOTSYS pointing to the directory where you 
+      unpacked the ROOT distribution:
+
+  
+         export ROOTSYS=<pathname>/root   (in bash or ksh)
+         setenv ROOTSYS <pathname>/root   (in csh or tcsh)
+
+
+   o  Add ROOTSYS/bin to your PATH and $ROOTSYS/lib to LD_LIBRARY_PATH:
+
+      in bash or ksh:
+
+        export PATH=$ROOTSYS/bin:$PATH
+        export LD_LIBRARY_PATH=$ROOTSYS/lib:$LD_LIBRARY_PATH
+        
+      in csh or tcsh:
+
+        setenv PATH ${ROOTSYS}/bin:${PATH}
+        setenv LD_LIBRARY_PATH ${ROOTSYS}/lib:${LD_LIBRARY_PATH}
+        rehash
+
+   o  try running root:
+
+      all shells:
+
+        root
+
+
+  1.2.  ODBC Driver Manager
+
+  The ODBC Driver Manager is the software layer between applications and
+  ODBC drivers. You must have one installed in order to use this
+  library. The free choices on UNIX are:
+
+
+   o  unixODBC <http://www.unixodbc.org/>. Version 1.8.4 or later is
+      recommended.
+
+      unixODBC RPMs can be downloaded from  
+      <http://grapeape.codingapes.com/unixODBC.xml> 
+      
+      Note: you need to download  at least 
+            unixODBC-xxx.rpm and unixODBC-devel-xxx.rpm
+
+   o  iODBC <http://www.iodbc.org/>. Version 2.50.3 or later is
+      recommended.
+
+
+  1.3.  Drivers
+
+  To actually use RDBC, you will need one or more ODBC drivers.
+  Examples of free database engines with ODBC drivers are:
+
+
+   o  MySQL  <http://www.mysql.com/downloads/api-myodbc.html>
+
+      MyODBC RPMs built specifically to work with unixODBC can be downloaded from: 
+      <http://grapeape.codingapes.com/myodbc.xml>
+
+
+      MyODBC RPMs built specifically to work with iODBC can be downloaded from: 
+      <http://www.mysql.com/Downloads/MyODBC/>
+
+   o  PostgreSQL <http://www.postgresql.org/>
+
+
+   MyODBC (the MySQL ODBC driver version 2.50.23 or later is known to
+   work fine with both iODBC and unixODBC).
+
+   If you can't find an ODBC driver for the RDBMS you need to access, you
+   can probably buy a solution from Openlink Software 
+
+               <http://www.openlinksw.com/> 
+   
+   or Merant   <http://www.merant.com/>.
+
+
+
+  2.  Installation
+
+  2.1.  UNIX
+
+  The following information applies for installing RDBC on unices.
+
+
+  2.1.1.  Configuration
+
+  First, you need to configure RDBC for your system.  Go into the
+  source directory and do
+
+
+         $ ./configure
+
+
+   o If you are using iODBC:
+
+      If your iODBC is not installed in it's default location - /usr/local,
+      you might have to use
+
+
+          --with-iodbc=DIR
+
+
+      or if the iODBC headers aren't residing in DIR/include, you can also use
+
+
+          --with-iodbc-includes=INCDIR
+
+
+      Same goes for libraries - if they aren't in DIR/lib, use
+
+
+          --with-iodbc-libs=LIBDIR
+
+
+
+   o If you are using unixODBC:
+ 
+     To make configure look for unixODBC instead of iODBC, use
+
+
+          --with-odbc=DIR
+
+
+      Where DIR is where unixODBC is installed.
+      Works the same as above, except it looks for standard ODBC headers and
+      libraries instead of the iODBC ones. This should be used with for
+      example unixODBC and Intersolv.
+
+      And (as usual), if the unixODBC headers and libraries aren't located
+      in DIR/include and DIR/lib, use
+ 
+
+          --with-odbc-libs=LIBDIR
+          --with-odbc-includes=INCDIR
+
+
+   o  By default $ROOTSYS directory is used for installation.
+
+      If you wish to install RDBC in a location other than $ROOTSYS,
+      add --prefix=PREFIX to the ./configure arguments.
+
+
+   o  You can control the ODBC version libodbc++/RDBC uses by specifying: 
+      --with-odbc-version=ODBCVER, where ODBCVER should be a four-digit 
+      hexadecimal value. For example 0x0250 means ODBC 2.50.
+
+   o  Configuration examples:
+   
+         In most cases you only need to specify which driver manager 
+         installed in your system, e.g.
+
+          
+      $ ./configure --with-odbc 
+
+         or
+
+     $ ./configure --with-iodbc
+
+         or
+   
+     $ ./configure --with-odbc --prefix=~/tmp/RDBC    
+   
+
+   2.1.2.  Compilation
+
+   Just type
+
+
+       $ gmake
+
+
+
+  2.1.3.  Installing RDBC
+
+  If you have write privileges in PREFIX, just do
+
+
+       $ gmake install
+
+
+
+  Otherwise, you'll have to use
+
+
+       $ su root -c 'gmake install'
+
+
+  2.1.  RedHat Linux
+
+   You probably will wish to install RDBC in your system by using RPMs.
+   To create or rebuid RDBC RPM you can :
+
+      download the source RPM, e.g RDBC-[version]-1.src.rpm
+      $ rpm --rebuild RDBC-[version]-1.src.rpm
+   
+   or create it by executing gmake
+
+      $  gmake rpm
+    
+
+  3.  Testing RDBC
+  
+   If it all goes well, you can try a couple of the test macros in
+   macros/ or PREFIX/macros/RDBC/. Check also macros/README.RDBC.
+  
+
+  4.  Documentation
+
+   If RDBC library compiled well to generate HTML documentation just do;
+
+      $  gmake html
+
+
+  ______________________________________________________________________
+
+
+   Visit RDBC home:  <http://www.phenix.bnl.gov/WWW/publish/onuchin/RDBC/>
+   
+
+  ______________________________________________________________________
+
+   Valeriy Onuchin <onuchin@sirius.ihep.su> 
+   IHEP, Protvino, Moscow region, Russia
+   
+$Id: INSTALL,v 1.1.1.1 2004/02/18 20:58:02 dave Exp $

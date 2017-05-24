@@ -1,0 +1,193 @@
+# $Id: README.RDBC,v 1.1.1.1 2004/02/18 20:58:02 dave Exp $
+#
+#     This file is part of the RDBC
+#     Author: Valeriy Onuchin <onuchin@sirius.ihep.su>
+
+
+This directory contains some RDBC test macros:
+
+___________________________________________________________________  
+                     RDBCmysql.C
+
+   not ready yet
+
+___________________________________________________________________  
+                     RDBCbench.C 
+
+  This is a sample implementation of the 
+  Transaction Processing Performance Council Benchmark B 
+  The code was adaptated from JAVA code taken from
+  http://www.worldserver.com/mm.mysql/
+
+ Usage:
+
+ root[] .include <RDBC path>/include    // add RDBC to include path 
+ root[] gSystem->Load("libRDBC");      // load library
+
+ Do either:
+
+ root[] .L RDBCbench.C                 // load interpreted macro
+ root[] .L RDBCbench.C++               // load compiled macro
+
+ Run test:
+
+ root[] bench(dsn,usr,psw,[option],[tpc],[clients]); // execute
+
+      dsn          URL/DSN
+      usr          user name
+      psw          password
+      tpc          transactions per client
+      clients      number of simultaneous clients
+
+      option string can contain:
+         -v           verbose error messages
+         -init        initialize the tables
+
+            --------------------------------------
+
+ To compile standalone executable program use:
+
+ 1. Compile shared RDBCbench_C.so by:
+
+       root[0] gSystem->Load("libRDBC");
+       root[1] .L RDBCform.C++
+   
+   or as single shell command:
+   
+   $root -b -q >/dev/null tmp.C | echo '{gSystem->Load("libRDBC"); gSystem->CompileMacro("RDBCbench.C","kf");}' >tmp.C
+
+   Comment: 
+      - RDBCbench class uses signal-slots which require generating dictionary for this class.
+      - The quickest way to do it is to use  ACLiC (Automatic Compiler of Shared Library for CINT)
+
+ 2. Comiple an executable by:
+
+    $ g++ -O -o RDBCbench RDBCbench.C `root-config --cflags --glibs` -lRDBC -DSTANDALONE 
+
+ 3. Run it:
+ 
+    $ ./RDBCbench url username [password] [option] [tpc] [clients] 
+
+
+___________________________________________________________________  
+            RDBCconsumer.C RDBCproducer.C
+
+   Scripts were tested  only with Oracle, not working with MySQL yet
+
+ 
+___________________________________________________________________  
+                  RDBCemp.C
+
+   Script requires standard demo tables for Oracle.
+   To create these demo tables for MySQL  run:
+   
+   $ mysql test -u username -p <demobld.mysql   
+
+   Usage:
+  
+ root[] gSystem->Load("libRDBC");      // load library
+ root[] .L RDBCemp.C                   // load macro
+ root[] RDBCemp(dsn,[usr],[pwd]);      // execute the function from macro
+
+
+           --------------------------------------
+
+ To compile standalone executable program use:
+
+    $ g++ -O -o RDBCemp RDBCemp.C `root-config --cflags --glibs` -lRDBC -DSTANDALONE 
+
+
+ Run it:
+ 
+    $ ./RDBCemp url username password &  
+
+
+___________________________________________________________________  
+                  RDBCfirst.C
+
+   Script requires standard demo tables for Oracle.
+   To create these demo tables for MySQL  run:
+   
+   $ mysql test -u username -p <demobld.mysql 
+ 
+   Usage:
+  
+ root[] gSystem->Load("libRDBC");         // load library
+ root[] .L RDBCfirst.C                    // load macro
+ root[] RDBCfirst(dsn,[usr],[pwd]);       // execute the function from macro
+
+
+           --------------------------------------
+
+ To compile standalone executable program use:
+
+    $ g++ -O -o RDBCfirst RDBCfirst.C `root-config --cflags --glibs` -lRDBC -DSTANDALONE 
+
+
+ Run it:
+ 
+    $ ./RDBCfirst url username password   
+ 
+___________________________________________________________________  
+                  RDBCform.C
+
+  An example of GUI form which can be used for browsing of tables
+
+ Usage:
+  
+ root[0] gSystem->Load("libRDBC");  // load library
+ root[1] .L RDBCform.C              // load macro
+ root[2]  new DbForm();             // create form  
+
+ Warnings:
+
+   - this macro uses TGxxx classes which don't work with win32
+   - some tables ( for example Oracle system tables) can
+     be browsed only with forward_only cursor. 
+     Use DbForm::SetForwardOnly() method to force this
+     setting.
+
+            --------------------------------------
+
+ To compile standalone executable program use:
+
+ 1. Compile shared RDBCform_C.so by:
+
+       root[0] gSystem->Load("libRDBC");
+       root[1] .L RDBCform.C++
+
+  or as single shell command:
+   
+   $root -b -q >/dev/null tmp.C | echo '{gSystem->Load("libGui"); gSystem->Load("libRDBC"); gSystem->CompileMacro("RDBCform.C","kf");}' >tmp.C
+
+   Comment: 
+      - Few classes from this example use signal-slots which require generating dictionaries.
+      - The quickest way to do it is to use  ACLiC (Automatic Compiler of Shared Library for CINT)
+
+ 2. Comiple executable by:
+
+    $ g++ -O -o RDBCform RDBCform.C `root-config --cflags --glibs` -lRDBC -DSTANDALONE 
+
+  Check the main() code for details
+
+ 3. Run it:
+ 
+    $ ./RDBCform&
+
+___________________________________________________________________  
+                  RDBCscroll.C
+
+   This example based on libodbc++/tests/scroll.cpp 
+
+  This should work with almost any almost-compliant database out there,
+  providing it supports scrollable cursors.
+
+ Usage:
+  
+ root[] gSystem->Load("libRDBC");       // load library
+ root[] .L RDBCscroll.C                 // load macro
+ root[] RDBCscroll(dsn,usr,psw);        // execute the function from macro
+
+    REQUIREMENTS
+
+      o You must have create table/drop table rights

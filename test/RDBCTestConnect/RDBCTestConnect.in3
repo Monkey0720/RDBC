@@ -1,0 +1,5 @@
+#test input that makes RDBCTestConnect fail to log on
+#
+#
+
+fail on purpose

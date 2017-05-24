@@ -1,0 +1,9 @@
+2002-03-04  V00-02-02
+
+	
+	First version of ChangeLog.  Differences from V00-02-01:-
+
+	Fix minor leak in TSQLUrl. 
+	TRDBCServer change kFalse to 0 (Bool_t now bool)
+
+        

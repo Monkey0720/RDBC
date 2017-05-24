@@ -1,0 +1,7 @@
+# this file is test input for connecting to an oracle database
+# the uncommented line below gets executed, if the env variables
+# are correct (i.e. if sqlplus $ORACLE_USER/$ORACLE_PSWD@$TWO_TASK
+# get you logged on) then 'gmake test' should report PASSED
+# 
+  
+oracle:odbc:oraodbc://$ORACLE_HOST:1521/$TWO_TASK $ORACLE_USER $ORACLE_PSWD

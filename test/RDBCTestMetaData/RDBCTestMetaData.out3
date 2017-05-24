@@ -1,0 +1,3 @@
+=W= JobC JobCModuleRegistry.cxx,v1.14:175> Duplicate entry: DemoNtupleModule->libNtupleBase.so,DemoNtupleModule->libRecord.so.
+=W= JobC JobCModuleRegistry.cxx,v1.14:175> Duplicate entry: DemoNtupleModule->libNtupleBase.so,DemoNtupleModule->libRecord.so.
+usage: RDBCTestMetaData dsn schema [usr] [password]

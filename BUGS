@@ -1,0 +1,4 @@
+Check libodbc++/BUGS
+
+- TSQLResultSet::Tree() is buggy
+- 

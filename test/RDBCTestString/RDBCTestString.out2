@@ -1,0 +1,3 @@
+connected!!!
+retrieved: a much much longer string that may overrun internal buffers if the odbc drivers are not written correctly
+retrieved: a short string

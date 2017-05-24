@@ -1,0 +1,137 @@
+=W= JobC JobCModuleRegistry.cxx,v1.14:175> Duplicate entry: DemoNtupleModule->libNtupleBase.so,DemoNtupleModule->libRecord.so.
+=W= JobC JobCModuleRegistry.cxx,v1.14:175> Duplicate entry: DemoNtupleModule->libNtupleBase.so,DemoNtupleModule->libRecord.so.
+connected!!!
+chartypes
+d_types
+dt
+dty
+float_table
+int_table
+junk
+some_types
+string_table
+testac
+zzz_all_types
+Bool_t AllProceduresAreCallable():0
+Bool_t AllTablesAreSelectable():1
+TString GetUserName():user
+Bool_t IsReadOnly():0
+Bool_t NullsAreSortedHigh():0
+Bool_t NullsAreSortedLow():0
+Bool_t NullsAreSortedAtStart():1
+Bool_t NullsAreSortedAtEnd():0
+TString GetDatabaseProductName():MySQL
+TString GetDatabaseProductVersion():3.23.53
+TString GetDriverName():myodbc.dll
+TString GetDriverVersion():2.50.37
+Int_t GetDriverMajorVersion():2
+Int_t GetDriverMinorVersion():50
+Bool_t UsesLocalFiles():0
+Bool_t UsesLocalFilePerTable():0
+Bool_t SupportsMixedCaseIdentifiers():0
+Bool_t StoresUpperCaseIdentifiers():0
+Bool_t StoresLowerCaseIdentifiers():0
+Bool_t StoresMixedCaseIdentifiers():1
+Bool_t SupportsMixedCaseQuotedIdentifiers():1
+Bool_t StoresUpperCaseQuotedIdentifiers():0
+Bool_t StoresLowerCaseQuotedIdentifiers():0
+Bool_t StoresMixedCaseQuotedIdentifiers():0
+TString GetIdentifierQuoteString():`
+TString GetSQLKeywords():UNIQUE,ZEROFILL,UNSIGNED,BIGINT,BLOB,TINYBLOB,MEDIMUMBLOB,LONGBL
+TString GetNumericFunctions():ABS,ACOS,ASIN,ATAN,ATAN2,CEILING,COS,COT,DEGREES,EXP,FLOOR,LOG,LOG10,MOD,PI,POWER,RADIANS,RAND,ROUND,SIGN,SIN,SQRT,TAN,TRUNCATE
+TString GetStringFunctions():ASCII,CHAR,CONCAT,INSERT,LCASE,LEFT,LENGTH,LOCATE,LOCATE_2,LTRIM,REPEAT,REPLACE,RIGHT,RTRIM,SOUNDEX,SPACE,SUBSTRING,UCASE
+TString GetSystemFunctions():DBNAME,IFNULL,USERNAME
+TString GetTimeDateFunctions():CURDATE,CURTIME,DAYNAME,DAYOFMONTH,DAYOFWEEK,DAYOFYEAR,HOUR,MINUTE,MONTH,MONTHNAME,NOW,QUARTER,SECOND,WEEK,YEAR
+TString GetSearchStringEscape():\
+TString GetExtraNameCharacters():«¸È‚‰‡ÂÁÍÎËÔÓÏƒ≈…Ê∆ÙˆÚ˚˘ˇ÷‹·ÌÛ˙Ò—
+Bool_t SupportsAlterTableWithAddColumn():1
+Bool_t SupportsAlterTableWithDropColumn():1
+Bool_t SupportsColumnAliasing():1
+Bool_t NullPlusNonNullIsNull():1
+Bool_t SupportsConvert():0
+Bool_t SupportsTableCorrelationNames():1
+Bool_t SupportsDifferentTableCorrelationNames():1
+Bool_t SupportsExpressionsInOrderBy():1
+Bool_t SupportsOrderByUnrelated():1
+Bool_t SupportsGroupBy():1
+Bool_t SupportsGroupByUnrelated():1
+Bool_t SupportsGroupByBeyondSelect():0
+Bool_t SupportsLikeEscapeClause():1
+Bool_t SupportsMultipleResultSets():1
+Bool_t SupportsMultipleTransactions():1
+Bool_t SupportsNonNullableColumns():1
+Bool_t SupportsMinimumSQLGrammar():1
+Bool_t SupportsCoreSQLGrammar():1
+Bool_t SupportsExtendedSQLGrammar():0
+Bool_t SupportsANSI92EntryLevelSQL():0
+Bool_t SupportsANSI92IntermediateSQL():0
+Bool_t SupportsANSI92FullSQL():1
+Bool_t SupportsIntegrityEnhancementFacility():0
+Bool_t SupportsOuterJoins():0
+Bool_t SupportsFullOuterJoins():0
+Bool_t SupportsLimitedOuterJoins():0
+TString GetSchemaTerm():owner
+TString GetTableTerm():table
+TString GetProcedureTerm():procedure
+TString GetCatalogTerm():database
+Bool_t IsCatalogAtStart():1
+TString GetCatalogSeparator():.
+Bool_t SupportsSchemasInDataManipulation():0
+Bool_t SupportsSchemasInProcedureCalls():0
+Bool_t SupportsSchemasInTableDefinitions():0
+Bool_t SupportsSchemasInIndexDefinitions():0
+Bool_t SupportsSchemasInPrivilegeDefinitions():0
+Bool_t SupportsCatalogsInDataManipulation():1
+Bool_t SupportsCatalogsInProcedureCalls():0
+Bool_t SupportsCatalogsInTableDefinitions():1
+Bool_t SupportsCatalogsInIndexDefinitions():1
+Bool_t SupportsCatalogsInPrivilegeDefinitions():0
+Bool_t SupportsPositionedDelete():0
+Bool_t SupportsPositionedUpdate():0
+Bool_t SupportsSelectForUpdate():0
+Bool_t SupportsStoredProcedures():0
+Bool_t SupportsSubqueriesInComparisons():0
+Bool_t SupportsSubqueriesInExists():0
+Bool_t SupportsSubqueriesInIns():0
+Bool_t SupportsSubqueriesInQuantifieds():0
+Bool_t SupportsCorrelatedSubqueries():0
+Bool_t SupportsUnion():0
+Bool_t SupportsUnionAll():0
+Bool_t SupportsOpenCursorsAcrossRollback():1
+Bool_t SupportsOpenStatementsAcrossCommit():1
+Bool_t SupportsOpenStatementsAcrossRollback():1
+Int_t GetMaxBinaryLiteralLength():0
+Int_t GetMaxCharLiteralLength():0
+Int_t GetMaxColumnNameLength():64
+Int_t GetMaxColumnsInGroupBy():0
+Int_t GetMaxColumnsInIndex():16
+Int_t GetMaxColumnsInOrderBy():0
+Int_t GetMaxColumnsInSelect():0
+Int_t GetMaxColumnsInTable():0
+Int_t GetMaxConnections():0
+Int_t GetMaxCursorNameLength():64
+Int_t GetMaxIndexLength():120
+Int_t GetMaxSchemaNameLength():0
+Int_t GetMaxProcedureNameLength():0
+Int_t GetMaxCatalogNameLength():0
+Int_t GetMaxRowSize():1085341696
+Bool_t DoesMaxRowSizeIncludeBlobs():1
+Int_t GetMaxStatementLength():8192
+Int_t GetMaxStatements():0
+Int_t GetMaxTableNameLength():64
+Int_t GetMaxTablesInSelect():32
+Int_t GetMaxUserNameLength():16
+Int_t GetDefaultTransactionIsolation():2
+Bool_t SupportsTransactions():0
+Bool_t SupportsDataDefinitionAndDataManipulationTransactions():0
+Bool_t SupportsDataManipulationTransactionsOnly():0
+Bool_t DataDefinitionCausesTransactionCommit():0
+Bool_t DataDefinitionIgnoredInTransactions():0
+looking at columns of zzz_all_types
+col name= 'a_float' type = 'float' 
+col name= 'a_real' type = 'double' 
+col name= 'an_int' type = 'integer' 
+col name= 'a_date' type = 'date' 
+col name= 'a_vc' type = 'varchar' 
+col name= 'a_blob' type = 'blob' 
+col name= 'a_char' type = 'char' 

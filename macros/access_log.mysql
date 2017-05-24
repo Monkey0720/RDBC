@@ -1,0 +1,17 @@
+DROP TABLE test.access_log;
+
+CREATE TABLE test.access_log 
+   (host VARCHAR(16) not null,
+    time TIMESTAMP(14) not null,
+    status smallint not null,
+    bytes DECIMAL(16),
+    content varchar(40) not null,
+    file varchar(128) not null,
+    referer varchar(128) not null,
+    agent varchar(128) not null);
+
+LOAD DATA LOCAL INFILE '/etc/httpd/logs/access_log' 
+   INTO TABLE test.access_log 
+   FIELDS TERMINATED BY ',' 
+   OPTIONALLY ENCLOSED BY '"' 
+   ESCAPED BY '\\';

@@ -1,0 +1,18 @@
+/Makefile.am/1.1.1.1/Wed Feb 18 20:58:02 2004//
+/TRDBCServer.h/1.1.1.1/Wed Feb 18 20:58:02 2004//
+/TSQL.h/1.1.1.1/Wed Feb 18 20:58:02 2004//
+/TSQLCallableStatement.h/1.1.1.1/Wed Feb 18 20:58:02 2004//
+/TSQLConnection.h/1.1.1.1/Wed Feb 18 20:58:02 2004//
+/TSQLDatabaseMetaData.h/1.1.1.1/Wed Feb 18 20:58:02 2004//
+/TSQLDriverInfo.h/1.1.1.1/Wed Feb 18 20:58:02 2004//
+/TSQLDriverManager.h/1.1.1.1/Wed Feb 18 20:58:02 2004//
+/TSQLImportClient.h/1.1.1.1/Wed Feb 18 20:58:02 2004//
+/TSQLImporter.h/1.1.1.1/Wed Feb 18 20:58:02 2004//
+/TSQLPreparedStatement.h/1.1.1.1/Wed Feb 18 20:58:02 2004//
+/TSQLResultSet.h/1.1.1.1/Wed Feb 18 20:58:02 2004//
+/TSQLResultSetMetaData.h/1.1.1.1/Wed Feb 18 20:58:02 2004//
+/TSQLStatement.h/1.1.1.1/Wed Feb 18 20:58:02 2004//
+/TSQLTypes.h/1.1.1.1/Wed Feb 18 20:58:02 2004//
+/TSQLUrl.h/1.1.1.1/Wed Feb 18 20:58:02 2004//
+/arch_spec_odbcpp.mk/1.1.1.1/Wed Feb 18 20:58:02 2004//
+D/odbc++////

@@ -1,0 +1,192 @@
+=W= JobC JobCModuleRegistry.cxx,v1.14:175> Duplicate entry: DemoNtupleModule->libNtupleBase.so,DemoNtupleModule->libRecord.so.
+=W= JobC JobCModuleRegistry.cxx,v1.14:175> Duplicate entry: DemoNtupleModule->libNtupleBase.so,DemoNtupleModule->libRecord.so.
+connected!!!
+CALADCTOPE
+CALADCTOPEVLD
+CALCHARGEINJECT
+CALCHARGEINJECTVLD
+CALGAINDRIFT
+CALGAINDRIFTREFERENCE
+CALGAINDRIFTREFERENCEVLD
+CALGAINDRIFTVLD
+CALMAPPERDATA
+CALMAPPERDATAVLD
+CALMAPPERFITS
+CALMAPPERFITSVLD
+CALMAPPERHEADER
+CALMAPPERHEADERVLD
+CALMIPCALIBRATION
+CALMIPCALIBRATIONVLD
+CALMUONCALIBRATION
+CALMUONCALIBRATIONVLD
+CALMUONSTATS
+CALMUONSTATSVLD
+CALNONLINEARITY
+CALNONLINEARITYVLD
+CALPINRESPONSE
+CALPINRESPONSEVLD
+CALPINTOADC
+CALPINTOADCVLD
+CALTIMECALIBRATION
+CALTIMECALIBRATIONVLD
+DBUSUBRUNSUMMARYVLD
+DBUVACHIPPEDS
+DBUVACHIPPEDSVLD
+DBUVACHIPSPARS
+DBUVACHIPSPARSVLD
+GLOBALSEQNO
+PLEXPINDIODETOLED
+PLEXPINDIODETOLEDVLD
+PLEXPIXELSPOTTOSTRIPEND
+PLEXPIXELSPOTTOSTRIPENDVLD
+PLEXPIXELTORAWCHANNEL
+PLEXPIXELTORAWCHANNELVLD
+PLEXRAWCHANNELREADOUTTYPE
+PLEXRAWCHANNELREADOUTTYPEVLD
+PLEXRAWCHANNELTOPINDIODE
+PLEXRAWCHANNELTOPINDIODEVLD
+PLEXSTRIPENDTOLED
+PLEXSTRIPENDTOLEDVLD
+PLEXVETOSHIELDMUXTOMDL
+PLEXVETOSHIELDMUXTOMDLVLD
+UGLIDBIGEOMETRY
+UGLIDBIGEOMETRYVLD
+UGLIDBISCINTMDL
+UGLIDBISCINTMDLSTRUCT
+UGLIDBISCINTMDLSTRUCTVLD
+UGLIDBISCINTMDLVLD
+UGLIDBISCINTPLN
+UGLIDBISCINTPLNSTRUCT
+UGLIDBISCINTPLNSTRUCTVLD
+UGLIDBISCINTPLNVLD
+UGLIDBISTEELPLN
+UGLIDBISTEELPLNVLD
+UGLIDBISTRIP
+UGLIDBISTRIPSTRUCT
+UGLIDBISTRIPSTRUCTVLD
+UGLIDBISTRIPVLD
+Bool_t AllProceduresAreCallable():0
+Bool_t AllTablesAreSelectable():0
+TString GetUserName():
+Bool_t IsReadOnly():0
+Bool_t NullsAreSortedHigh():1
+Bool_t NullsAreSortedLow():0
+Bool_t NullsAreSortedAtStart():0
+Bool_t NullsAreSortedAtEnd():0
+TString GetDatabaseProductName():[Oracle]
+TString GetDatabaseProductVersion():
+TString GetDriverName():liboraodbc.so
+TString GetDriverVersion():00.00.0000
+Int_t GetDriverMajorVersion():3
+Int_t GetDriverMinorVersion():51
+Bool_t UsesLocalFiles():0
+Bool_t UsesLocalFilePerTable():0
+Bool_t SupportsMixedCaseIdentifiers():0
+Bool_t StoresUpperCaseIdentifiers():1
+Bool_t StoresLowerCaseIdentifiers():0
+Bool_t StoresMixedCaseIdentifiers():0
+Bool_t SupportsMixedCaseQuotedIdentifiers():0
+Bool_t StoresUpperCaseQuotedIdentifiers():0
+Bool_t StoresLowerCaseQuotedIdentifiers():0
+Bool_t StoresMixedCaseQuotedIdentifiers():0
+TString GetIdentifierQuoteString():"
+TString GetSQLKeywords():
+TString GetNumericFunctions():ABS,ACOS,ATAN,ATAN2,CEILING,COS,DEGREES,EXP,FLOOR,LOG,LOG10,MOD,PI,POWER,RADIANS,RAND,ROUND,SIGN,SIN,SQRT,TAN,TRUNCATE
+TString GetStringFunctions():
+TString GetSystemFunctions():
+TString GetTimeDateFunctions():
+TString GetSearchStringEscape():
+TString GetExtraNameCharacters():
+Bool_t SupportsAlterTableWithAddColumn():0
+Bool_t SupportsAlterTableWithDropColumn():0
+Bool_t SupportsColumnAliasing():1
+Bool_t NullPlusNonNullIsNull():0
+Bool_t SupportsConvert():0
+Bool_t SupportsTableCorrelationNames():1
+Bool_t SupportsDifferentTableCorrelationNames():0
+Bool_t SupportsExpressionsInOrderBy():1
+Bool_t SupportsOrderByUnrelated():1
+Bool_t SupportsGroupBy():1
+Bool_t SupportsGroupByUnrelated():0
+Bool_t SupportsGroupByBeyondSelect():0
+Bool_t SupportsLikeEscapeClause():1
+Bool_t SupportsMultipleResultSets():0
+Bool_t SupportsMultipleTransactions():0
+Bool_t SupportsNonNullableColumns():0
+Bool_t SupportsMinimumSQLGrammar():1
+Bool_t SupportsCoreSQLGrammar():0
+Bool_t SupportsExtendedSQLGrammar():0
+Bool_t SupportsANSI92EntryLevelSQL():0
+Bool_t SupportsANSI92IntermediateSQL():0
+Bool_t SupportsANSI92FullSQL():1
+Bool_t SupportsIntegrityEnhancementFacility():1
+Bool_t SupportsOuterJoins():0
+Bool_t SupportsFullOuterJoins():0
+Bool_t SupportsLimitedOuterJoins():0
+TString GetSchemaTerm():owner
+TString GetTableTerm():table
+TString GetProcedureTerm():
+TString GetCatalogTerm():
+Bool_t IsCatalogAtStart():0
+TString GetCatalogSeparator():
+Bool_t SupportsSchemasInDataManipulation():1
+Bool_t SupportsSchemasInProcedureCalls():1
+Bool_t SupportsSchemasInTableDefinitions():0
+Bool_t SupportsSchemasInIndexDefinitions():0
+Bool_t SupportsSchemasInPrivilegeDefinitions():1
+Bool_t SupportsCatalogsInDataManipulation():0
+Bool_t SupportsCatalogsInProcedureCalls():0
+Bool_t SupportsCatalogsInTableDefinitions():0
+Bool_t SupportsCatalogsInIndexDefinitions():0
+Bool_t SupportsCatalogsInPrivilegeDefinitions():0
+Bool_t SupportsPositionedDelete():0
+Bool_t SupportsPositionedUpdate():0
+Bool_t SupportsSelectForUpdate():0
+Bool_t SupportsStoredProcedures():0
+Bool_t SupportsSubqueriesInComparisons():1
+Bool_t SupportsSubqueriesInExists():1
+Bool_t SupportsSubqueriesInIns():1
+Bool_t SupportsSubqueriesInQuantifieds():1
+Bool_t SupportsCorrelatedSubqueries():1
+Bool_t SupportsUnion():1
+Bool_t SupportsUnionAll():1
+Bool_t SupportsOpenCursorsAcrossRollback():0
+Bool_t SupportsOpenStatementsAcrossCommit():0
+Bool_t SupportsOpenStatementsAcrossRollback():0
+Int_t GetMaxBinaryLiteralLength():0
+Int_t GetMaxCharLiteralLength():30
+Int_t GetMaxColumnNameLength():30
+Int_t GetMaxColumnsInGroupBy():1000
+Int_t GetMaxColumnsInIndex():0
+Int_t GetMaxColumnsInOrderBy():1000
+Int_t GetMaxColumnsInSelect():1000
+Int_t GetMaxColumnsInTable():1000
+Int_t GetMaxConnections():0
+Int_t GetMaxCursorNameLength():30
+Int_t GetMaxIndexLength():0
+Int_t GetMaxSchemaNameLength():30
+Int_t GetMaxProcedureNameLength():30
+Int_t GetMaxCatalogNameLength():0
+Int_t GetMaxRowSize():0
+Bool_t DoesMaxRowSizeIncludeBlobs():0
+Int_t GetMaxStatementLength():0
+Int_t GetMaxStatements():0
+Int_t GetMaxTableNameLength():30
+Int_t GetMaxTablesInSelect():1000
+Int_t GetMaxUserNameLength():30
+Int_t GetDefaultTransactionIsolation():4
+Bool_t SupportsTransactions():1
+Bool_t SupportsDataDefinitionAndDataManipulationTransactions():0
+Bool_t SupportsDataManipulationTransactionsOnly():0
+Bool_t DataDefinitionCausesTransactionCommit():0
+Bool_t DataDefinitionIgnoredInTransactions():0
+looking at columns of UGLIDBISTRIPVLD
+col name= 'SEQNO' type = 'INTEGER' 
+col name= 'TIMESTART' type = 'DATE' 
+col name= 'TIMEEND' type = 'DATE' 
+col name= 'DETECTORMASK' type = 'INTEGER' 
+col name= 'SIMMASK' type = 'INTEGER' 
+col name= 'TASK' type = 'INTEGER' 
+col name= 'AGGREGATENO' type = 'INTEGER' 
+col name= 'CREATIONDATE' type = 'DATE' 
+col name= 'INSERTDATE' type = 'DATE' 

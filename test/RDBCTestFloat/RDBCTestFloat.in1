@@ -1,0 +1,1 @@
+mysql:odbc://$MYSQL_HOST/test $MYSQL_USER $MYSQL_PSWD

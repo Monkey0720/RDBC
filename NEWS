@@ -1,0 +1,28 @@
+* News in version 1.0.2:
+
+			* ASCII file (CSV format) interface implemented
+			* package can be built with SRT ( Software Release Tools ) 
+
+* News in version 1.0.2:
+
+         * GNU autotools introduced for configuring/compiling/installation
+
+         * Many structual changes. Main of these are the following:
+          
+            - TSQLResultSet is inherited from TSQLResult (from ROOT SQL interface) 
+            - TSQLResultSet methods Next(),Previous(),Absolute(),Relative()
+              return TSQLRow ( naitive ROOT SQL )   
+            - new class TRDBCServer derived from TSQLServer ( naitive ROOT SQL ) 
+
+           that makes RDBC to be "ROOT SQL complient" 
+
+            - Possibility to connect via JDBC-URL-like string ( dynamic DSN ) 
+              e.g. "mysql://myhost/mydb:3306" was implemented
+             
+         * Benchmark script was added to test suite macros 
+
+         * Numerous bug fixes
+
+* News in version 1.0.1:
+
+         * First public pre-pre-release

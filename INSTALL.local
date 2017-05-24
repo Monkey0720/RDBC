@@ -1,0 +1,306 @@
+
+       Local installation of ROOT-RDBC-unixODBC-MySQL-MyODBC 
+
+  ====================================================================== 
+
+
+   The following is instruction for installation of "everything from scratch" 
+   in the user's local directory ( no system privileges required ).
+   It's recommended only for testing of the package.    
+ 
+
+ 1. ROOT installation
+
+   1.1. Download ROOT distribution.
+   1.2. Unpack and set enviroment virables 
+   1.3. Test it
+
+
+ 2. Driver Manager installation
+
+   2.1. Download and unpack
+   2.2. Configure, compile and install
+   2.3. Test it
+
+
+ 3. MySQL-client installation
+
+   3.1. Download and unpack
+   3.2. Configure, compile and install
+   3.3. Test it
+
+
+ 4. ODBC driver installation
+
+   4.1. Download and unpack
+   4.2. Configure, compile and install
+
+
+ 5. RDBC installation 
+
+   5.1. Configure, compile and install
+   5.2. Test it
+   5.3. Create HTML documentation
+
+ 
+  P.S.  
+
+ ______________________________________________________________________
+
+
+
+ 1. ROOT installation
+
+
+   1.1. Download ROOT distribution
+
+      Go to <http://root.cern.ch/root/Availability.html> and
+      get ROOT version 3.00 or higher.
+
+      For the moment when text was written I got
+      "Intel x86 Linux for Redhat 6.1 (glibc 2.1) and egcs 1.1.2, version 3.00/05"
+
+      <ftp://root.cern.ch/root/root_v3.00.05.Linux.2.2.14.tar.gz>
+
+      Assume that $HOME/src directory is used for source downloads.
+
+
+   1.2. Unpack and set enviroment virables 
+
+      $ cd $HOME/src
+      $ tar -xzvf root_v3.00.05.Linux.2.2.14.tar.gz
+   
+      Choose the directory where ROOT will be installed.
+      Assume that it is $HOME/root/v3.00.05 directory.
+
+      $ mkdir $HOME/root; mkdir $HOME/root/v3.00.05
+      $ cp -rf  $HOME/src/root/*  $HOME/root/v3.00.05/
+
+      Enviroment virables should be set according to 
+      <http://root.cern.ch/root/EnvVars.html>
+
+      $ export ROOTSYS=$HOME/root/v3.00.05
+      $ export PATH=$PATH:$ROOTSYS/bin
+      $ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ROOTSYS/lib
+
+
+   1.3. Test it
+
+      Usually I test ROOT by compiling programs/libs from $ROOTSYS/test
+ 
+      $ cd $ROOTSYS/test
+      $ gmake
+
+      If compilation was OK, try one of my favorite tests:
+
+      $ root
+      root [0] .L Tetris.so
+      root [1] Tetris t
+
+
+ ______________________________________________________________________
+
+
+ 2. Driver Manager installation
+
+
+   There are few DriverManagers for Unixes required to run ODBC application.  
+   I'm using unixODBC.   
+
+
+   2.1. Download and unpack 
+
+      Downloaded unixODBC from <http://www.unixODBC.org/download.html>
+      
+      $ cd $HOME/src
+      $ tar -xzvf unixODBC-2.0.4.tar.gz ( the latest at the moment when text was written )
+   
+
+   2.2. Configure, compile and install
+
+      $ cd unixODBC-2.0.4
+
+      By default unixODBC will be installed in /usr/local/ directory which requires 
+      system privileges. Use $ROOTSYS directory for "local installation".
+
+      $ ./configure --prefix=$ROOTSYS --disable-gui --disable-drivers
+
+      The options "--disable-gui" and "--disable-drivers" are used to create
+      minimal configuration. To compile it just type:
+
+      $ gmake
+   
+      The installation step
+
+      $ gmake install
+
+   
+   2.3. Test it
+
+      Skip the testing for the moment because it requires ODBC drivers to be installed.
+      However for understanding how to work with unixODBC without GUI check:
+
+      <http://www.unixODBC.org/odbcinst.html>
+
+ 
+ ______________________________________________________________________
+
+
+ 3. MySQL-client installation
+
+   
+   3.1. Download and unpack 
+
+      Download MySQL source from <http://www.mysql.com/downloads/index.html>
+      Look for "Source downloads for XXX" part of the page and get "Tarball".
+      Put it into $HOME/src directory. 
+
+      $ cd $HOME/src
+      $ tar -xzvf  mysql-3.23.33.tar.gz
+
+
+   3.2. Configure, compile and install
+ 
+      $ cd  mysql-3.23.33
+   
+      To compile it "without server" and install it in $ROOTSYS just type:
+
+      $ ./configure --prefix=$ROOTSYS --without-server --without-bench\
+          --without-docs --with-thread-safe-client\
+          --enable-shared --disable-static
+
+      $ gmake
+      $ gmake install
+      $ cp -f $ROOTSYS/lib/mysql/* $ROOTSYS/lib/
+
+      Comment: libmysqlclient.so.10 should be located at $ROOTSYS/lib/ 
+
+      If something is going wrong check MySQL docs for help
+      <http://www.mysql.com/doc/I/n/Installing.html>    
+
+
+   3.3. Test it
+
+      Try to connect to some MySQL server with  mysql client program 
+      ( it's installed in $ROOTSYS/bin  which is a part of $PATH after step 1.2 ). 
+
+      $ mysql -u username -h mysql_server -p 
+
+      Check MySQL docs for more inforamtion.
+
+
+______________________________________________________________________
+
+
+ 4. ODBC driver installation
+  
+
+   4.1. Download and unpack 
+
+      The steps are similar to which were done previously.
+
+      Go to <http://www.mysql.com/downloads/api-myodbc.html> and
+      download the "Source for MyODBC on Unix" into $HOME/src dir.
+
+      $ cd $HOME/src
+      $ tar -xzvf  MyODBC-2.50.36.tar.gz
+
+
+   4.2. Configure, compile and install
+
+      $ cd MyODBC-2.50.36
+      $ ./configure --prefix=$ROOTSYS --with-unixODBC=$ROOTSYS\
+                    --with-mysql-libs=$ROOTSYS/lib\ 
+                    --with-mysql-includes=$ROOTSYS/include/mysql 
+      $ gmake
+      $ gmake install
+
+______________________________________________________________________
+
+
+ 5. RDBC installation
+  
+   Actuallly to compile and install RDBC only DriverManager required.
+   This step can be done right after "2. Driver Manager installation".
+
+   If you are reading this text I assume RDBC is already downloaded,
+   otherwise visit RDBC home for source download.
+
+
+   5.1. Configure, compile and install
+    
+      $ cd <RDBC source directory>
+      $ ./configure --prefix=$ROOTSYS --with-odbc=$ROOTSYS    
+      $ gmake
+      $ gmake install
+
+      If everything goes well, RDBC headers will be in $ROOTSYS/include,
+      libRDBC.so will be in $ROOTSYS/lib, $ROOTSYS/macros/RDBC will contain
+      the RDBC test macros ( check $ROOTSYS/macros/RDBC/README.RDBC ) 
+
+
+   5.2. Test it
+
+      Try simple tests:
+
+      $ root
+      root [0] gSystem->Load("libRDBC")
+      root [1] con = gSQLDriverManager->GetConnection("mysql://mysql_host/test","username")
+
+      In case of successfull connection, the value of "con" will be non-zero,
+      otherwise check the reason of error by "gSQLDriverManager->GetWarnings()->ls()"
+ 
+      To print out database metadata information, type:
+      root [2] con->Print("all")
+       
+      To print out databases available on the server, type:
+      root [3] stmt = con->CreateStatement()
+      root [4] rs = stmt->ExecuteQuery("show databases")
+      root [5] rs->Print()
+    
+      To print out all tables in "test" database, type:
+      root [6] rs = stmt->ExecuteQuery("show tables")
+      root [7] rs->Print()
+   
+      Try RDBC tests from $ROOTSYS/macros/RDBC, e.g.
+      root [8] .L  RDBC/RDBCform.C
+      root [9] DbForm form
+
+      That will run simple GUI form which can be used for table browsing.
+      
+
+   5.3. Create HTML documentation
+
+      To generate local copy of HTML documentation on RDBC classes
+
+      $ cd <RDBC source directory> 
+      
+      It is supposed that RDBC is compiled 
+
+      $ gmake html
+
+      That will create htmldoc directory with HTML documentation
+      
+
+______________________________________________________________________
+
+
+  P.S.    
+
+   That's all!  Questions, suggestions, comments to me:
+
+      Valeriy Onuchin <onuchin@sirius.ihep.su> 
+      IHEP, Protvino, Moscow region, Russia
+   
+
+ ______________________________________________________________________
+
+
+   Visit RDBC home: <http://www.phenix.bnl.gov/WWW/publish/onuchin/RDBC/>
+   
+
+  ______________________________________________________________________
+
+ 
+$Id: INSTALL.local,v 1.1.1.1 2004/02/18 20:58:02 dave Exp $
+
