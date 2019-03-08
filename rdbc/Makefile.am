@@ -12,7 +12,7 @@ lib_LTLIBRARIES=libRDBC.la
 
 AM_CPPFLAGS = -I$(top_srcdir)/include
 
-RDBCDict = RDBCDict.cxx RDBCDict.h
+RDBCDict = RDBC_Dict.cc RDBCDict.h
 LINKDEF = $(srcdir)/LinkDef.h
 
 libRDBC_la_BUILT_SOURCES = $(RDBCDict)
@@ -38,14 +38,17 @@ RDBC_H = \
 
 pkginclude_HEADERS = \
   $(RDBC_H)
-
-#if ! MAKEROOT6
-  ROOT5DICTS = \
+  ROOTDICTS = \
     $(libRDBC_la_BUILT_SOURCES) 
-#endif
+
+if MAKEROOT6
+pcmdir = $(libdir)
+nobase_dist_pcm_DATA = \
+  RDBC_Dict_rdict.pcm
+endif
 
 libRDBC_la_SOURCES= \
-  $(ROOT5DICTS) \
+  $(ROOTDICTS) \
   $(srcdir)/TSQL.cxx \
   $(srcdir)/TSQLCallableStatement.cxx \
   $(srcdir)/TSQLConnection.cxx \
@@ -66,3 +69,6 @@ libRDBC_la_SOURCES= \
 $(RDBCDict): $(RDBC_H) $(LINKDEF) Makefile
 	@echo Generating dictionary ... 
 	$(ROOTCINT) -f $@ @CINTDEFS@  -c $(DEFAULT_INCLUDES) $(AM_CPPFLAGS) $(RDBC_H) $(LINKDEF)
+
+#just to get the dependency
+%_Dict_rdict.pcm: %_Dict.cc ;

@@ -16,7 +16,7 @@ libRDBCodbc_la_LIBADD=-L$(ODBCXX_DIR)/lib/ -lodbc++
 INCDIR=$(top_srcdir)/include/RDBC
 AM_CPPFLAGS = -I$(top_srcdir)/include
 
-RDBCodbcDict = RDBCodbcDict.cxx RDBCodbcDict.h
+RDBCodbcDict = RDBCodbc_Dict.cc RDBCodbcDict.h
 LINKDEF = $(srcdir)/LinkDef.h
 
 libRDBCodbc_la_BUILT_SOURCES = $(RDBCodbcDict)
@@ -35,13 +35,17 @@ RDBCodbc_H = \
 pkginclude_HEADERS = \
   $(RDBCodbc_H)
 
-#if ! MAKEROOT6
-  ROOT5DICTS = \
+  ROOTDICTS = \
     $(libRDBCodbc_la_BUILT_SOURCES) 
-#endif
+
+if  MAKEROOT6
+pcmdir = $(libdir)
+nobase_dist_pcm_DATA = \
+  RDBCodbc_Dict_rdict.pcm
+endif
 
 libRDBCodbc_la_SOURCES= \
-  $(ROOT5DICTS) \
+  $(ROOTDICTS) \
   ODBCCallableStatement.cxx \
   ODBCConnection.cxx \
   ODBCDatabaseMetaData.cxx \
@@ -54,6 +58,9 @@ libRDBCodbc_la_SOURCES= \
 $(RDBCodbcDict): $(RDBCodbc_H) $(LINKDEF) Makefile
 	@echo Generating dictionary ... 
 	$(ROOTCINT) -f $@ @CINTDEFS@  -c $(DEFAULT_INCLUDES) $(AM_CPPFLAGS) $(RDBCodbc_H) $(LINKDEF)
+
+#just to get the dependency
+%_Dict_rdict.pcm: %_Dict.cc ;
 
 #	@echo Compiling libodbc++ sources ...
 #	cd $(topdir)/$(ODBCXX_DIR); $(MAKE)
