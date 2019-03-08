@@ -11,14 +11,10 @@ ODBCCXX_DIR = @ODBCXX_DIR@
 
 lib_LTLIBRARIES=libRDBCodbc.la
 
-libRDBCodbc_la_LDFLAGS= \
-   -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) \
-   -release $(LT_RELEASE)
-
 libRDBCodbc_la_LIBADD=-L$(ODBCXX_DIR)/lib/ -lodbc++
 
 INCDIR=$(top_srcdir)/include/RDBC
-INCLUDES= -I$(top_srcdir)/include
+AM_CPPFLAGS = -I$(top_srcdir)/include
 
 RDBCodbcDict = RDBCodbcDict.cxx RDBCodbcDict.h
 LINKDEF = $(srcdir)/LinkDef.h
@@ -28,28 +24,36 @@ libRDBCodbc_la_BUILT_SOURCES = $(RDBCodbcDict)
 CLEANFILES=$(RDBCodbcDict)
 
 RDBCodbc_H = \
-$(srcdir)/ODBCCallableStatement.h \
-$(srcdir)/ODBCConnection.h \
-$(srcdir)/ODBCDatabaseMetaData.h \
-$(srcdir)/ODBCPreparedStatement.h \
-$(srcdir)/ODBCResultSet.h \
-$(srcdir)/ODBCResultSetMetaData.h \
-$(srcdir)/ODBCStatement.h
+  $(srcdir)/ODBCCallableStatement.h \
+  $(srcdir)/ODBCConnection.h \
+  $(srcdir)/ODBCDatabaseMetaData.h \
+  $(srcdir)/ODBCPreparedStatement.h \
+  $(srcdir)/ODBCResultSet.h \
+  $(srcdir)/ODBCResultSetMetaData.h \
+  $(srcdir)/ODBCStatement.h
+
+pkginclude_HEADERS = \
+  $(RDBCodbc_H)
+
+if ! MAKEROOT6
+  ROOT5DICTS = \
+    $(libRDBCodbc_la_BUILT_SOURCES) 
+endif
 
 libRDBCodbc_la_SOURCES= \
-$(libRDBCodbc_la_BUILT_SOURCES) \
-ODBCCallableStatement.cxx \
-ODBCConnection.cxx \
-ODBCDatabaseMetaData.cxx \
-ODBCPreparedStatement.cxx \
-ODBCResultSet.cxx \
-ODBCResultSetMetaData.cxx \
-ODBCStatement.cxx
+  $(ROOT5DICTS) \
+  ODBCCallableStatement.cxx \
+  ODBCConnection.cxx \
+  ODBCDatabaseMetaData.cxx \
+  ODBCPreparedStatement.cxx \
+  ODBCResultSet.cxx \
+  ODBCResultSetMetaData.cxx \
+  ODBCStatement.cxx
 
 
 $(RDBCodbcDict): $(RDBCodbc_H) $(LINKDEF) Makefile
 	@echo Generating dictionary ... 
-	$(ROOTCINT) -f RDBCodbcDict.cxx -c $(INCLUDES) $(RDBCodbc_H) $(LINKDEF)
+	$(ROOTCINT) -f $@ @CINTDEFS@  -c $(DEFAULT_INCLUDES) $(AM_CPPFLAGS) $(RDBCodbc_H) $(LINKDEF)
 
 #	@echo Compiling libodbc++ sources ...
 #	cd $(topdir)/$(ODBCXX_DIR); $(MAKE)

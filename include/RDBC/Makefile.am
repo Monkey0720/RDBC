@@ -23,7 +23,7 @@ TSQLStatement.h \
 TRDBCServer.h \
 TSQLTypes.h \
 TSQLUrl.h
- 
+
 config.h: $(CONFIG_HEADER)
 	sed -e 's/#\([^ ][^ ]*\) \([^ ][^ ]*\)/#\1 RDBC_\2/g' >> $@ < $(CONFIG_HEADER)
 
