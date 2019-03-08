@@ -5,8 +5,9 @@
 #
 
 #pkgincludedir=@includedir@/@PACKAGE@
+RDBC_includedir = $(includedir)/RDBC
 
-pkginclude_HEADERS = \
+RDBC_include_HEADERS = \
 config.h \
 TSQL.h \
 TSQLCallableStatement.h \
@@ -23,7 +24,7 @@ TSQLStatement.h \
 TRDBCServer.h \
 TSQLTypes.h \
 TSQLUrl.h
- 
+
 config.h: $(CONFIG_HEADER)
 	sed -e 's/#\([^ ][^ ]*\) \([^ ][^ ]*\)/#\1 RDBC_\2/g' >> $@ < $(CONFIG_HEADER)
 

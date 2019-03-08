@@ -11,16 +11,12 @@ ODBCCXX_DIR = @ODBCXX_DIR@
 
 lib_LTLIBRARIES=libRDBCodbc.la
 
-libRDBCodbc_la_LDFLAGS= \
-   -version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE) \
-   -release $(LT_RELEASE)
-
 libRDBCodbc_la_LIBADD=-L$(ODBCXX_DIR)/lib/ -lodbc++
 
 INCDIR=$(top_srcdir)/include/RDBC
-INCLUDES= -I$(top_srcdir)/include
+AM_CPPFLAGS = -I$(top_srcdir)/include
 
-RDBCodbcDict = RDBCodbcDict.cxx RDBCodbcDict.h
+RDBCodbcDict = RDBCodbc_Dict.cc RDBCodbcDict.h
 LINKDEF = $(srcdir)/LinkDef.h
 
 libRDBCodbc_la_BUILT_SOURCES = $(RDBCodbcDict)
@@ -28,28 +24,45 @@ libRDBCodbc_la_BUILT_SOURCES = $(RDBCodbcDict)
 CLEANFILES=$(RDBCodbcDict)
 
 RDBCodbc_H = \
-$(srcdir)/ODBCCallableStatement.h \
-$(srcdir)/ODBCConnection.h \
-$(srcdir)/ODBCDatabaseMetaData.h \
-$(srcdir)/ODBCPreparedStatement.h \
-$(srcdir)/ODBCResultSet.h \
-$(srcdir)/ODBCResultSetMetaData.h \
-$(srcdir)/ODBCStatement.h
+  $(srcdir)/ODBCCallableStatement.h \
+  $(srcdir)/ODBCConnection.h \
+  $(srcdir)/ODBCDatabaseMetaData.h \
+  $(srcdir)/ODBCPreparedStatement.h \
+  $(srcdir)/ODBCResultSet.h \
+  $(srcdir)/ODBCResultSetMetaData.h \
+  $(srcdir)/ODBCStatement.h
+
+RDBC_includedir = $(includedir)/RDBC
+
+RDBC_include_HEADERS = \
+  $(RDBCodbc_H)
+
+  ROOTDICTS = \
+    $(libRDBCodbc_la_BUILT_SOURCES) 
+
+if  MAKEROOT6
+pcmdir = $(libdir)
+nobase_dist_pcm_DATA = \
+  RDBCodbc_Dict_rdict.pcm
+endif
 
 libRDBCodbc_la_SOURCES= \
-$(libRDBCodbc_la_BUILT_SOURCES) \
-ODBCCallableStatement.cxx \
-ODBCConnection.cxx \
-ODBCDatabaseMetaData.cxx \
-ODBCPreparedStatement.cxx \
-ODBCResultSet.cxx \
-ODBCResultSetMetaData.cxx \
-ODBCStatement.cxx
+  $(ROOTDICTS) \
+  ODBCCallableStatement.cxx \
+  ODBCConnection.cxx \
+  ODBCDatabaseMetaData.cxx \
+  ODBCPreparedStatement.cxx \
+  ODBCResultSet.cxx \
+  ODBCResultSetMetaData.cxx \
+  ODBCStatement.cxx
 
 
 $(RDBCodbcDict): $(RDBCodbc_H) $(LINKDEF) Makefile
 	@echo Generating dictionary ... 
-	$(ROOTCINT) -f RDBCodbcDict.cxx -c $(INCLUDES) $(RDBCodbc_H) $(LINKDEF)
+	$(ROOTCINT) -f $@ @CINTDEFS@  -c $(DEFAULT_INCLUDES) $(AM_CPPFLAGS) $(RDBCodbc_H) $(LINKDEF)
+
+#just to get the dependency
+%_Dict_rdict.pcm: %_Dict.cc ;
 
 #	@echo Compiling libodbc++ sources ...
 #	cd $(topdir)/$(ODBCXX_DIR); $(MAKE)
