@@ -5,8 +5,9 @@
 #
 
 #pkgincludedir=@includedir@/@PACKAGE@
+RDBC_includedir = $(includedir)/RDBC
 
-pkginclude_HEADERS = \
+RDBC_include_HEADERS = \
 config.h \
 TSQL.h \
 TSQLCallableStatement.h \

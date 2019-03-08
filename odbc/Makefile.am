@@ -32,7 +32,9 @@ RDBCodbc_H = \
   $(srcdir)/ODBCResultSetMetaData.h \
   $(srcdir)/ODBCStatement.h
 
-pkginclude_HEADERS = \
+RDBC_includedir = $(includedir)/RDBC
+
+RDBC_include_HEADERS = \
   $(RDBCodbc_H)
 
   ROOTDICTS = \

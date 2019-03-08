@@ -36,10 +36,8 @@ RDBC_H = \
   $(top_srcdir)/include/RDBC/TSQLTypes.h \
   $(top_srcdir)/include/RDBC/TSQLUrl.h
 
-pkginclude_HEADERS = \
-  $(RDBC_H)
-  ROOTDICTS = \
-    $(libRDBC_la_BUILT_SOURCES) 
+ROOTDICTS = \
+  $(libRDBC_la_BUILT_SOURCES) 
 
 if MAKEROOT6
 pcmdir = $(libdir)
