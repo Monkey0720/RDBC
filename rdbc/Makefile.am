@@ -39,10 +39,10 @@ RDBC_H = \
 pkginclude_HEADERS = \
   $(RDBC_H)
 
-if ! MAKEROOT6
+#if ! MAKEROOT6
   ROOT5DICTS = \
     $(libRDBC_la_BUILT_SOURCES) 
-endif
+#endif
 
 libRDBC_la_SOURCES= \
   $(ROOT5DICTS) \
